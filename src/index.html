@@ -11,7 +11,7 @@
 
 <body>
   <!-- HEADER SECTION -->
-  <header class="bg-gray-800 py-3 text-white">
+  <header class="bg-gray-800 pt-3 text-white">
     <!-- Social Media -->
     <div class="container flex items-center justify-end space-x-3 fill-gray-400">
       <i class="fa-brands fa-instagram text-gray-500 hover:text-gray-400 transition duration-400"></i>
@@ -19,21 +19,57 @@
       <i class="fa-brands fa-youtube text-gray-500 hover:text-gray-400 transition duration-400"></i>
     </div>
     <!-- Header Container -->
-    <div class="container md:flex items-center justify-between text-center space-x-16">
+    <div class="container flex items-center justify-between text-center space-x-16">
       <!-- Logo -->
-      <a href="#" class="text-6xl font-bold">LOGO</a>
+      <a href="#" class="text-4xl lg:text-6xl font-bold pb-3 pl-5">LOGO</a>
+      <!-- Mobile Menu -->
+      <div class="block md:hidden pr-4">
+        <div class="space-y-1 cursor-pointer">
+          <div class="bg-slate-400 w-8 h-1 rounded-full"></div>
+          <div class="bg-slate-400 w-8 h-1 rounded-full"></div>
+          <div class="bg-slate-400 w-8 h-1 rounded-full"></div>
+        </div>
+      </div>
       <!-- Navigation -->
-      <nav class="flex justify-end flex-1">
-        <div class="hidden md:flex items-center text-sm lg:text-base">
-          <a href="#" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">HOME</a>
-          <a href="#" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">ABOUT US</a>
-          <a href="#" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">AGENCIES</a>
-          <a href="#" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">BLOG</a>
-          <a href="#" class="hover:text-red-500 pl-7 lg:pl-10 transition duration-100">CONTACT</a>
+      <nav class="hidden md:flex justify-end flex-1">
+        <div class="flex items-center text-sm lg:text-base">
+          <a href="#" onclick="deneme('home')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="home" class="deneme">HOME</p>
+          </a>
+          <a href="#" onclick="deneme('about')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="about" class="deneme">ABOUT US</p>
+          </a>
+          <a href="#" onclick="deneme('agencies')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="agencies" class="deneme">AGENCIES</p>
+          </a>
+          <a href="#" onclick="deneme('blog')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="blog" class="deneme">BLOG</p>
+          </a>
+          <a href="#" onclick="deneme('contact')" class="hover:text-red-500 pl-7 lg:pl-10 transition duration-100">
+            <p id="contact" class="deneme">CONTACT</p>
+          </a>
         </div>
       </nav>
     </div>
   </header>
+
+  <!-- SECTİON -->
+  <section class="h-96"></section>
 </body>
 
 </html>
+
+<script>
+  deneme("home")
+  function deneme(pageName) {
+    var a = document.getElementsByClassName("deneme");
+    for (let i = 0; i < a.length; i++) {
+      const element = a[i];
+      element.classList.remove("border-b-2");
+      element.classList.remove("border-b-orange-600");
+    }
+    var b = document.getElementById(pageName);
+    b.classList.add("border-b-2");
+    b.classList.add("border-b-orange-600");
+  }
+</script>
