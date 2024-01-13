@@ -10,8 +10,14 @@ module.exports = {
         xl: '1024px',
         '2xl': '1024px',
       }
+    }, letterSpacing: {
+      widest: '.3em'
     },
-    extend: {},
+    extend: {
+      spacing: {
+        '128': '32rem'
+      }
+    },
   },
   plugins: [],
 }
