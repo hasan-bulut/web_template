@@ -11,6 +11,7 @@ module.exports = {
         '2xl': '1024px',
       }
     }, letterSpacing: {
+      wider: '.1em',
       widest: '.3em'
     },
     extend: {
