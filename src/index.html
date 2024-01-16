@@ -7,6 +7,7 @@
   <link href="./css/style.css" rel="stylesheet" />
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a6947f0cf5.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -33,18 +34,18 @@
       <!-- Navigation -->
       <nav class="hidden md:flex justify-end flex-1">
         <div class="flex items-center text-sm lg:text-base">
-          <a href="#" onclick="scrollToSection('section1')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
-            <p id="home" class="deneme">ANASAYFA</p>
-          </a>
-          <a href="#" onclick="scrollToSection('section2')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
-            <p id="about" class="deneme">HAKKIMIZDA</p>
-          </a>
-          <a href="#" onclick="scrollToSection('section3')" class="hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
-            <p id="agencies" class="deneme">HİZMETLERİMİZ</p>
-          </a>
-          <a href="#" onclick="scrollToSection('section4')" class="hover:text-red-500 pl-7 lg:pl-10 transition duration-100">
-            <p id="contact" class="deneme">İLETİŞİM</p>
-          </a>
+          <div data-section="section1" onclick="navbarSelect('home')" class="navbar-item hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="home" class="navbarSelect">ANASAYFA</p>
+          </div>
+          <div data-section="section2" onclick="navbarSelect('about')" class="navbar-item hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="about" class="navbarSelect">HAKKIMIZDA</p>
+          </div>
+          <div data-section="section4" onclick="navbarSelect('agencies')" class="navbar-item hover:text-red-500 border-r border-gray-600 px-7 lg:px-10 transition duration-100">
+            <p id="agencies" class="navbarSelect">HİZMETLERİMİZ</p>
+          </div>
+          <div data-section="section4" onclick="navbarSelect('contact')" class="navbar-item hover:text-red-500 pl-7 lg:pl-10 transition duration-100">
+            <p id="contact" class="navbarSelect">İLETİŞİM</p>
+          </div>
         </div>
       </nav>
     </div>
@@ -94,7 +95,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="section3" class="h-96 bg-gray-800">
+  <section id="section3" class="h-96 bg-gray-800 agencies">
 
   </section>
 
@@ -115,9 +116,9 @@
 </html>
 
 <script>
-  deneme("home")
-  function deneme(pageName) {
-    var a = document.getElementsByClassName("deneme");
+  navbarSelect("home")
+  function navbarSelect(pageName) {
+    var a = document.getElementsByClassName("navbarSelect");
     for (let i = 0; i < a.length; i++) {
       const element = a[i];
       element.classList.remove("border-b-2");
@@ -127,4 +128,15 @@
     b.classList.add("border-b-2");
     b.classList.add("border-b-orange-600");
   }
+
+  $(document).ready(function () {
+    $(".navbar-item").on("click", function () {
+      var sectionId = $(this).data("section");
+      var targetSection = $("#" + sectionId);
+
+      $("html, body").animate({
+        scrollTop: targetSection.offset().top - 100
+      }, 1000); // Animasyon süresi (ms) - 1000 ms = 1 saniye
+    });
+  });
 </script>
