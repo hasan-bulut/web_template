@@ -120,26 +120,8 @@
   <section id="section3" class="h-128 bg-gray-800 agencies">
     <h1 class="text-2xl text-center py-5 text-white font-medium">HİZMETLERİMİZ</h1>
     <div class="slider">
-      <div class="max-w-3xl relative m-auto">
-        <div class="slide fade">
-          <div class="text-white text-sm pt-2 pl-3 absolute top-0">1 / 3</div>
-          <img src="images/image (1).png" class="w-full h-80 object-cover" />
-          <div class="text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent">Bina Afiş</div>
-        </div>
+      <div id="slider-images" class="max-w-3xl relative m-auto">
 
-        <div class="slide fade">
-          <div class="text-white text-sm pt-2 pl-3 absolute top-0">2 / 3</div>
-          <img src="images/image (2).png" class="w-full h-80 object-cover" />
-          <div class="text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent">Tabela</div>
-        </div>
-
-        <div class="slide fade">
-          <div class="text-white text-sm pt-2 pl-3 absolute top-0">3 / 3</div>
-          <img src="images/image (3).png" class="w-full h-80 object-cover" />
-          <div class="text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent">Araç Baskı</div>
-        </div>
-        <a class="cursor-pointer absolute top-1/2 w-auto p-4 -mt-5 text-white font-bold text-lg transition duration-500 rounded-r-md select-none bg-black opacity-50 hover:opacity-80" onclick="slideRoute(-1)">&#10094;</a>
-        <a class="cursor-pointer absolute top-1/2 w-auto p-4 -mt-5 text-white font-bold text-lg transition duration-500 rounded-l-md select-none bg-black opacity-50 hover:opacity-80 right-0" onclick="slideRoute(1)">&#10095;</a>
       </div>
 
       <div class="text-center">
@@ -179,6 +161,20 @@
     b.classList.add("border-b-2");
     b.classList.add("border-b-orange-600");
   }
+
+  const hizmetler = [
+    { name: "Bina Afiş", photo: "hizmetler1.png" },
+    { name: "Tabela", photo: "hizmetler2.png" },
+    { name: "Araç Baskı", photo: "hizmetler3.png" },
+  ];
+
+  var sliderImagesHTML = "";
+  hizmetler.forEach(hizmet => {
+    sliderImagesHTML += "<div class='slide fade'><div class='text-white text-sm pt-2 pl-3 absolute top-0' > 1 / 3</div><img src='images/" + hizmet.photo + "' class='w-full h-80 object-cover'/><div class='text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent'>" + hizmet.name + "</div></div>";
+  });
+  sliderImagesHTML += "<a class='cursor-pointer absolute top-1/2 w-auto p-4 -mt-5 text-white font-bold text-lg transition duration-500 rounded-r-md select-none bg-black opacity-50 hover:opacity-80' onclick='slideRoute(-1)'>&#10094;</a><a class='cursor-pointer absolute top-1/2 w-auto p-4 -mt-5 text-white font-bold text-lg transition duration-500 rounded-l-md select-none bg-black opacity-50 hover:opacity-80 right-0' onclick='slideRoute(1)'>&#10095;</a>"
+
+  document.getElementById("slider-images").innerHTML = sliderImagesHTML;
 
   $(document).ready(function () {
     $(".navbar-item").on("click", function () {
@@ -224,3 +220,23 @@
     dots[slideIndex - 1].className += " active";
   }
 </script>
+
+<!-- <div class="slide fade">
+          <div class="text-white text-sm pt-2 pl-3 absolute top-0">1 / 3</div>
+          <img src="images/image (1).png" class="w-full h-80 object-cover" />
+          <div class="text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent">Bina Afiş</div>
+        </div>
+
+        <div class="slide fade">
+          <div class="text-white text-sm pt-2 pl-3 absolute top-0">2 / 3</div>
+          <img src="images/image (2).png" class="w-full h-80 object-cover" />
+          <div class="text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent">Tabela</div>
+        </div>
+
+        <div class="slide fade">
+          <div class="text-white text-sm pt-2 pl-3 absolute top-0">3 / 3</div>
+          <img src="images/image (3).png" class="w-full h-80 object-cover" />
+          <div class="text-lg text-center text-white absolute bottom-0 w-full py-2 bg-gradient-to-r from-transparent via-gray-800 to-transparent">Araç Baskı</div>
+        </div>
+        <a class="cursor-pointer absolute top-1/2 w-auto p-4 -mt-5 text-white font-bold text-lg transition duration-500 rounded-r-md select-none bg-black opacity-50 hover:opacity-80" onclick="slideRoute(-1)">&#10094;</a>
+        <a class="cursor-pointer absolute top-1/2 w-auto p-4 -mt-5 text-white font-bold text-lg transition duration-500 rounded-l-md select-none bg-black opacity-50 hover:opacity-80 right-0" onclick="slideRoute(1)">&#10095;</a> -->
